@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:khata_app/custom_widgets/pageslider.dart';
+import 'package:khata_app/screens/loginscreen.dart';
+import 'package:khata_app/screens/signupscreen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 
@@ -22,17 +25,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: PageView(
               controller: _controller,
               children: [
-                buildPage(
+              PageSlider(
                   image: "assets/images/slide1.png",
                   title: "Gain total control of your money",
                   subtitle: "Become your own money manager and make every cent count",
                 ),
-                buildPage(
+                PageSlider(
                   image: "assets/images/slide2.png",
                   title: "Know where your money goes",
                   subtitle: "Track your transaction easily, with categories and financial report",
                 ),
-                buildPage(
+                PageSlider(
                   image: "assets/images/slide3.png",
                   title: "Planning ahead",
                   subtitle: "Setup your budget for each category so you in control",
@@ -41,7 +44,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
 
-          // PAGE INDICATOR (the dots)
           SmoothPageIndicator(
             controller: _controller,
             count: 3,
@@ -54,7 +56,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
           SizedBox(height: 25),
 
-          // SIGN UP BUTTON
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: ElevatedButton(
@@ -65,12 +66,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   borderRadius: BorderRadius.circular(15),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));
+              },
               child: Text("Sign Up",style: TextStyle(color: Color(0xffFCFCFC)),),
             ),
           ),
 
-          // LOGIN BUTTON
+        
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: OutlinedButton(
@@ -81,7 +84,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   borderRadius: BorderRadius.circular(15),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder:(context)=>LoginScreen()));
+              },
               child: Text("Login", style: TextStyle(color: Color(0xff7F3DFF))),
             ),
           ),
@@ -92,31 +97,4 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-  Widget buildPage({required String image, required String title, required String subtitle}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(image, height: 250),
-
-          SizedBox(height: 20),
-
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-          ),
-
-          SizedBox(height: 10),
-
-          Text(
-            subtitle,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 14, color: Colors.grey),
-          ),
-        ],
-      ),
-    );
-  }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:khata_app/screens/forgetpasswordscreen.dart';
 import 'package:khata_app/screens/onboardingscreen.dart';
+import 'package:khata_app/screens/resetpasswordscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
   
       ),
-      home: OnboardingScreen()
+      home:OnboardingScreen()
     );
   }
 }

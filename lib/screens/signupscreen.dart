@@ -120,7 +120,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  if(agree){
+                    
+                  }
+                },
                 child: Text("Sign Up", style: TextStyle(fontSize: 16,color: Color(0xffFCFCFC))),
               ),
             ),
