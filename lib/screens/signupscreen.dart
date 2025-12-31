@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:khata_app/apiServices/userController.dart';
+import 'package:khata_app/models/user.dart';
 import 'package:khata_app/screens/loginscreen.dart';
 import 'package:khata_app/screens/onboardingscreen.dart';
+import 'package:khata_app/screens/shared/homescreen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -120,9 +123,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                onPressed: () {
+                onPressed: () async{
                   if(agree){
-                    
+                    UserAccount user=UserAccount(username: namecontroller.text, password: passwordcontroller.text, phone: numbercontroller.text);
+                    var response=await UserController().Signup(user);
+                    if(response.statusCode==200){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                    }else{
+                    ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    content: Text("Api Error"),
+  ),
+);
+
+                    }
                   }
                 },
                 child: Text("Sign Up", style: TextStyle(fontSize: 16,color: Color(0xffFCFCFC))),

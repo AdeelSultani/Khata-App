@@ -89,28 +89,33 @@ class AddSharedData extends StatelessWidget {
       body: Column(
         children: [
           // Green Summary Card
-          Container(
-            margin: const EdgeInsets.all(16),
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: const Color(0xFF00A36C),
-              borderRadius: BorderRadius.circular(25),
-            ),
-            child: Row(
-              children: [
-                const CircleAvatar(
-                  backgroundColor: Colors.white24,
-                  child: Icon(Icons.download_rounded, color: Colors.white),
-                ),
-                const SizedBox(width: 15),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text("I have to get", style: TextStyle(color: Colors.white70, fontSize: 12)),
-                    Text("\$5000", style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
-                  ],
-                ),
-              ],
+          GestureDetector(
+            onTap: () {
+            _showAddCommentSheet(context);
+            },
+            child: Container(
+              margin: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: const Color(0xFF00A36C),
+                borderRadius: BorderRadius.circular(25),
+              ),
+              child: Row(
+                children: [
+                  const CircleAvatar(
+                    backgroundColor: Colors.white24,
+                    child: Icon(Icons.download_rounded, color: Colors.white),
+                  ),
+                  const SizedBox(width: 15),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text("I have to get", style: TextStyle(color: Colors.white70, fontSize: 12)),
+                      Text("\$5000", style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(

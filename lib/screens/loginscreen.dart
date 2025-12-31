@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:khata_app/homescreen.dart';
+import 'package:khata_app/screens/shared/homescreen.dart';
 import 'package:khata_app/screens/onboardingscreen.dart';
 import 'package:khata_app/screens/signupscreen.dart';
 
@@ -89,9 +89,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 onPressed: () {
-                  if(namecontroller.text=='adeel'){
+                  
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
-                  }
+                  
                 },
                 child: Text("Login", style: TextStyle(fontSize: 16,color: Color(0xffFCFCFC))),
               ),

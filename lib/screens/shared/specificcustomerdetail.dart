@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'igot.dart';
+import '../igot.dart';
 
 class SpecificCustomerDetail extends StatefulWidget {
   const SpecificCustomerDetail({super.key});
